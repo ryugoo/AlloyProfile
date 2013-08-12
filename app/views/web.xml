@@ -1,0 +1,8 @@
+<Alloy>
+  <Window id="webWindow" modal="true">
+    <RightNavButton platform="ios">
+      <Button title="閉じる" onClick="close" />
+    </RightNavButton>
+    <WebView id="webView" />
+  </Window>
+</Alloy>

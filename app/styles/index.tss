@@ -1,0 +1,45 @@
+".container": {
+  backgroundColor: "white",
+  layout: "vertical"
+}
+".switchView": {
+  width: Ti.UI.FILL,
+  height: "160dp",
+  top: "0dp"
+}
+"#iconAndName": {
+  layout: "vertical",
+  width: Ti.UI.FILL,
+  height: Ti.UI.FILL,
+  backgroundColor: "#333333"
+}
+".profileIcon": {
+  height: "100dp",
+  top: "10dp"
+}
+"#nameLabel": {
+  font: {
+    fontWeight: "bold",
+    fontSize: "16sp"
+  },
+  color: "#FFFFFF",
+  top: "4dp"
+}
+".profileMessage": {
+  font: {
+    fontSize: "14sp"
+  },
+  color: "#333333"
+}
+".socialInfoView": {
+  top: "0dp"
+}
+".socialRow": {
+  height: "66dp",
+  className: "socialRow",
+  font: {
+    fontSize: "18sp",
+    fontWeight: "bold"
+  },
+  color: "#333333"
+}
