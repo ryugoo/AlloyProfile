@@ -22,7 +22,7 @@ function Controller() {
     }
     function openWeb(e) {
         var row = e.row;
-        var socialType = row.socialType;
+        var socialType = row.id;
         var socialAccount = row.title;
         var webWindow = Alloy.createController("web", {
             type: socialType,
@@ -31,8 +31,10 @@ function Controller() {
         webWindow.open();
     }
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
+    this.__controllerPath = "index";
     arguments[0] ? arguments[0]["__parentSymbol"] : null;
     arguments[0] ? arguments[0]["$model"] : null;
+    arguments[0] ? arguments[0]["__itemTemplate"] : null;
     var $ = this;
     var exports = {};
     var __defers = {};
@@ -66,7 +68,6 @@ function Controller() {
         },
         color: "#FFFFFF",
         top: "4dp",
-        text: "Ryutaro Miyashita",
         id: "nameLabel"
     });
     $.__views.iconAndName.add($.__views.nameLabel);
@@ -79,7 +80,6 @@ function Controller() {
             fontSize: "14sp"
         },
         color: "#333333",
-        text: "Hello! My name is Ryutaro Miyashita!",
         id: "profileLabel"
     });
     $.__views.message.add($.__views.profileLabel);
@@ -98,7 +98,7 @@ function Controller() {
     });
     var __alloyId5 = [];
     __alloyId5.push($.__views.__alloyId4);
-    $.__views.__alloyId6 = Ti.UI.createTableViewRow({
+    $.__views.twitter = Ti.UI.createTableViewRow({
         height: "66dp",
         className: "socialRow",
         font: {
@@ -106,18 +106,33 @@ function Controller() {
             fontWeight: "bold"
         },
         color: "#333333",
-        title: "ryugoo_",
-        socialType: "twitter",
+        id: "twitter"
+    });
+    $.__views.__alloyId4.add($.__views.twitter);
+    openWeb ? $.__views.twitter.addEventListener("click", openWeb) : __defers["$.__views.twitter!click!openWeb"] = true;
+    $.__views.__alloyId6 = Ti.UI.createTableViewSection({
+        headerTitle: "Facebook",
         id: "__alloyId6"
     });
-    $.__views.__alloyId4.add($.__views.__alloyId6);
-    openWeb ? $.__views.__alloyId6.addEventListener("click", openWeb) : __defers["$.__views.__alloyId6!click!openWeb"] = true;
+    __alloyId5.push($.__views.__alloyId6);
+    $.__views.facebook = Ti.UI.createTableViewRow({
+        height: "66dp",
+        className: "socialRow",
+        font: {
+            fontSize: "18sp",
+            fontWeight: "bold"
+        },
+        color: "#333333",
+        id: "facebook"
+    });
+    $.__views.__alloyId6.add($.__views.facebook);
+    openWeb ? $.__views.facebook.addEventListener("click", openWeb) : __defers["$.__views.facebook!click!openWeb"] = true;
     $.__views.__alloyId7 = Ti.UI.createTableViewSection({
-        headerTitle: "Facebook",
+        headerTitle: "GitHub",
         id: "__alloyId7"
     });
     __alloyId5.push($.__views.__alloyId7);
-    $.__views.__alloyId8 = Ti.UI.createTableViewRow({
+    $.__views.github = Ti.UI.createTableViewRow({
         height: "66dp",
         className: "socialRow",
         font: {
@@ -125,31 +140,10 @@ function Controller() {
             fontWeight: "bold"
         },
         color: "#333333",
-        title: "ryutaro.miyashita",
-        socialType: "facebook",
-        id: "__alloyId8"
+        id: "github"
     });
-    $.__views.__alloyId7.add($.__views.__alloyId8);
-    openWeb ? $.__views.__alloyId8.addEventListener("click", openWeb) : __defers["$.__views.__alloyId8!click!openWeb"] = true;
-    $.__views.__alloyId9 = Ti.UI.createTableViewSection({
-        headerTitle: "GitHub",
-        id: "__alloyId9"
-    });
-    __alloyId5.push($.__views.__alloyId9);
-    $.__views.__alloyId10 = Ti.UI.createTableViewRow({
-        height: "66dp",
-        className: "socialRow",
-        font: {
-            fontSize: "18sp",
-            fontWeight: "bold"
-        },
-        color: "#333333",
-        title: "ryugoo",
-        socialType: "github",
-        id: "__alloyId10"
-    });
-    $.__views.__alloyId9.add($.__views.__alloyId10);
-    openWeb ? $.__views.__alloyId10.addEventListener("click", openWeb) : __defers["$.__views.__alloyId10!click!openWeb"] = true;
+    $.__views.__alloyId7.add($.__views.github);
+    openWeb ? $.__views.github.addEventListener("click", openWeb) : __defers["$.__views.github!click!openWeb"] = true;
     $.__views.__alloyId3 = Ti.UI.createTableView({
         top: "0dp",
         data: __alloyId5,
@@ -158,11 +152,16 @@ function Controller() {
     $.__views.index.add($.__views.__alloyId3);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    $.nameLabel.text = Alloy.CFG.name;
+    $.profileLabel.text = Alloy.CFG.profile;
+    $.twitter.title = Alloy.CFG.twitter;
+    $.facebook.title = Alloy.CFG.facebook;
+    $.github.title = Alloy.CFG.github;
     $.index.open();
     __defers["$.__views.iconImage!longpress!changeIconDialog"] && $.__views.iconImage.addEventListener("longpress", changeIconDialog);
-    __defers["$.__views.__alloyId6!click!openWeb"] && $.__views.__alloyId6.addEventListener("click", openWeb);
-    __defers["$.__views.__alloyId8!click!openWeb"] && $.__views.__alloyId8.addEventListener("click", openWeb);
-    __defers["$.__views.__alloyId10!click!openWeb"] && $.__views.__alloyId10.addEventListener("click", openWeb);
+    __defers["$.__views.twitter!click!openWeb"] && $.__views.twitter.addEventListener("click", openWeb);
+    __defers["$.__views.facebook!click!openWeb"] && $.__views.facebook.addEventListener("click", openWeb);
+    __defers["$.__views.github!click!openWeb"] && $.__views.github.addEventListener("click", openWeb);
     _.extend($, exports);
 }
 

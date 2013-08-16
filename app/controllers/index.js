@@ -26,7 +26,7 @@ function changeIconDialog() {
 
 function openWeb(e) {
     var row = e.row;
-    var socialType = row.socialType;
+    var socialType = row.id;
     var socialAccount = row.title;
     var webWindow = Alloy.createController('web', {
         type: socialType,
@@ -35,4 +35,9 @@ function openWeb(e) {
     webWindow.open();
 }
 
+$.nameLabel.text = Alloy.CFG.name;
+$.profileLabel.text = Alloy.CFG.profile;
+$.twitter.title = Alloy.CFG.twitter;
+$.facebook.title = Alloy.CFG.facebook;
+$.github.title = Alloy.CFG.github;
 $.index.open();

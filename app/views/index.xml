@@ -4,23 +4,23 @@
     <ScrollableView class="switchView" showPagingControl="true">
       <View id="iconAndName">
         <ImageView id="iconImage" class="profileIcon" onLongpress="changeIconDialog" image="http://placehold.jp/100x100.png" />
-        <Label id="nameLabel">Ryutaro Miyashita</Label>
+        <Label id="nameLabel" />
       </View>
       <View id="message">
-        <Label id="profileLabel" class="profileMessage">Hello! My name is Ryutaro Miyashita!</Label>
+        <Label id="profileLabel" class="profileMessage" />
       </View>
     </ScrollableView>
 
     <!-- ソーシャルメディア情報の表示 -->
     <TableView class="socialInfoView">
       <TableViewSection headerTitle="Twitter">
-        <TableViewRow class="socialRow" title="ryugoo_" socialType="twitter" onClick="openWeb" />
+        <TableViewRow class="socialRow" id="twitter" onClick="openWeb" />
       </TableViewSection>
       <TableViewSection headerTitle="Facebook">
-        <TableViewRow class="socialRow" title="ryutaro.miyashita" socialType="facebook" onClick="openWeb" />
+        <TableViewRow class="socialRow" id="facebook" onClick="openWeb" />
       </TableViewSection>
       <TableViewSection headerTitle="GitHub">
-        <TableViewRow class="socialRow" title="ryugoo" socialType="github" onClick="openWeb" />
+        <TableViewRow class="socialRow" id="github" onClick="openWeb" />
       </TableViewSection>
     </TableView>
   </Window>
